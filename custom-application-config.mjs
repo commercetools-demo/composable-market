@@ -1,19 +1,20 @@
-import { PERMISSIONS, entryPointUriPath } from './src/constants';
+import { PERMISSIONS } from './src/constants';
 
 /**
  * @type {import('@commercetools-frontend/application-config').ConfigOptionsForCustomApplication}
  */
 const config = {
   name: 'Marketplace',
-  entryPointUriPath,
-  cloudIdentifier: 'gcp-us',
+  entryPointUriPath: '${env:ENTRY_POINT_URI_PATH}',
+  cloudIdentifier: '${env:CLOUD_IDENTIFIER}',
+  mcApiUrl: '${env:MC_API_URL}',
   env: {
-    development: {
-      initialProjectKey: 'us-store',
-    },
     production: {
-      applicationId: 'TODO',
-      url: 'https://your_app_hostname.com',
+      applicationId: '${env:CUSTOM_APPLICATION_ID}',
+      url: '${env:APPLICATION_URL}',
+    },
+    development: {
+      initialProjectKey: '${env:INITIAL_PROJECT_KEY}',
     },
   },
   oAuthScopes: {
@@ -26,14 +27,6 @@ const config = {
     labelAllLocales: [],
     permissions: [PERMISSIONS.View],
   },
-  submenuLinks: [
-    {
-      uriPath: 'channels',
-      defaultLabel: 'Channels',
-      labelAllLocales: [],
-      permissions: [PERMISSIONS.View],
-    },
-  ],
 };
 
 export default config;
