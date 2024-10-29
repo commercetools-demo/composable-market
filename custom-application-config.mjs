@@ -17,6 +17,15 @@ const config = {
       initialProjectKey: '${env:INITIAL_PROJECT_KEY}',
     },
   },
+  additionalEnv: {
+    firestoreEndpoint: '${env:FIRESTORE_ENDPOINT}',
+  },
+  headers: {
+    csp:{
+      "connect-src": ["'${env:FIRESTORE_ENDPOINT}'"],
+      "script-src": ["'${env:FIRESTORE_ENDPOINT}'"],
+    }
+  },
   oAuthScopes: {
     view: ['view_products'],
     manage: ['manage_products'],

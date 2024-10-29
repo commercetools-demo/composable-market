@@ -72,6 +72,7 @@
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
     "@types/testing-library__jest-dom": "^5.14.9",
+    "axios": "^1.7.7",
     "eslint": "8.57.0",
     "eslint-formatter-pretty": "4.1.0",
     "eslint-plugin-graphql": "^4.0.0",
@@ -104,5 +105,7 @@
     "headers-polyfill": "3.2.5",
     "nwsapi": "2.2.7"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/axios": "^0.14.4"
+  }
 }

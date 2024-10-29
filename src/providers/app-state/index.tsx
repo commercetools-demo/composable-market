@@ -4,6 +4,7 @@ import { ConnectorDraft } from '../../hooks/use-extensibility/types/connector';
 import { MyCustomApplication } from '../../hooks/use-extensibility/types/app';
 import { MyCustomView } from '../../hooks/use-extensibility/types/view';
 import { User } from '../../hooks/use-extensibility/types/user';
+import { useCloudStorage } from '../../hooks/use-cloud-storage';
 
 interface AppStateContextReturn {
   // connectApps: any[];
@@ -26,28 +27,8 @@ const initialData = {
 const AppStateContext = React.createContext<AppStateContextReturn>(initialData);
 
 const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  // const [connectApps, setConnectApps] = useState<PagedQueryResponse<any>>();
-  // const [mcApps, setMcApps] = useState<PagedQueryResponse<any>>();
-  // const [allMyApps, setAllMyApps] = useState<any>();
-
-  // const [isLoading, setIsLoading] = useState(false);
+  const { items } = useCloudStorage();
   const { myConnectApps, myApps, myViews, user } = useExtensibility();
-
-  // const getMyApps = async () => {
-  //   setIsLoading(true);
-
-  //   // const appResult = await fetchAllApps();
-  //   // setAllMyApps(appResult);
-  //   setIsLoading(false);
-  // };
-
-  // const refreshMyData = () => {
-  //   getMyApps();
-  // };
-
-  // useEffect(() => {
-  //   getMyApps();
-  // }, []);
 
   return (
     <AppStateContext.Provider
